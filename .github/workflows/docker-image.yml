@@ -20,8 +20,6 @@ jobs:
         add_git_labels:  true
         tag_with_ref: true
         push: false
-    - name: Test Helm container
-      run: GIT_BRANCH=${GITHUB_REF#refs/heads/} make test
     - name: Publish Helm container
       if: ${{ startsWith(github.ref, 'refs/heads/m') || startsWith(github.ref, 'refs/heads/v') }}
       uses: docker/build-push-action@v1
